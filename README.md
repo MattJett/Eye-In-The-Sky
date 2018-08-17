@@ -1,5 +1,5 @@
 # EyeInTheSky
-Eye In The Sky – GUI WPF App
+GUI WPF App
 
 DESCRIPTION
 -----------
