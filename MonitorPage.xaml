@@ -1,0 +1,63 @@
+﻿<Page x:Name="Monitor" x:Class="EyeInTheSky.MonitorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EyeInTheSky"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MonitorPage"
+      KeepAlive="True"
+      Height="421" Width="1105" TextOptions.TextFormattingMode="Ideal" Background="#FF39393E" Foreground="#FFE4E4E4" FontFamily="Roboto">
+
+    <Grid Background="#FF58585F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="212*"/>
+            <RowDefinition Height="64*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="49*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FF39393E" HorizontalAlignment="Left" Height="126" Margin="0,151,0,-1" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Top" Width="423"/>
+        <Rectangle Fill="#FF4E4E53" HorizontalAlignment="Left" Height="451" Margin="413,0,0,-1" Grid.RowSpan="4" VerticalAlignment="Top" Width="692" Grid.ColumnSpan="2"/>
+        <!--<ToolBar x:Name="ToolBar" Height="33" Margin="0,27,145,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" TextOptions.TextFormattingMode="Ideal" Style="{DynamicResource ToolBarStyle1}">
+            <Button ToolBar.OverflowMode="Never" BorderBrush="{x:Null}" Height="25" Margin="2" Width="25" MinWidth="25" MinHeight="25" RenderTransformOrigin="0.54,0.42" Background="#FF39393E" TextOptions.TextFormattingMode="Ideal"/>
+        </ToolBar>-->
+        <Button Style="{DynamicResource Main_Button}" x:Name="Button_Start" Content="START" Margin="10,1,0,0" Grid.Row="3" VerticalAlignment="Top" Width="391" Height="42" Background="{x:Null}" FontFamily="Roboto" Foreground="White" FontSize="20" BorderBrush="{x:Null}" HorizontalAlignment="Left" TextOptions.TextFormattingMode="Ideal" FontWeight="Bold" Click="Button_Start_Click"/>
+        <GroupBox x:Name="GrpBox_ModeSelection" Header="" HorizontalAlignment="Left" Height="71" Margin="11,29,0,0" VerticalAlignment="Top" Width="391" BorderBrush="{x:Null}" Background="#FF39393E" Foreground="#FFB0B0B0" BorderThickness="0" FontFamily="Roboto Light" FontSize="10" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{DynamicResource GroupBoxStyle1}" Grid.RowSpan="2">
+            <GroupBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="4"/>
+                </TransformGroup>
+            </GroupBox.RenderTransform>
+            <CheckBox x:Name="CheckBox_SubFolders" Content="Include Subfolders" HorizontalAlignment="Left" Margin="120,0,0,19" VerticalAlignment="Bottom" Foreground="#FFE2E2E2" FontFamily="Roboto" TextOptions.TextFormattingMode="Ideal" VerticalContentAlignment="Bottom" Width="103" Background="White" Padding="4,-1,0,1"/>
+        </GroupBox>
+        <TextBox x:Name="TextBox_PathInputField" HorizontalAlignment="Left" Height="23" Margin="35,42,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" FontWeight="Light" VerticalContentAlignment="Center" Background="White" CaretBrush="#FF232323" BorderBrush="{x:Null}"/>
+        <Button x:Name="Button_Browse" Content="Browse" HorizontalAlignment="Left" Height="23" Margin="323,42,0,0" Grid.Row="2" VerticalAlignment="Top" Width="78" FontFamily="Roboto" FontSize="10" Foreground="#FF464646" Click="Button_Browse_Click" HorizontalContentAlignment="Center" Padding="-5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Medium"/>
+        <Button x:Name="Button_ExportToDataBase" Content="Export to Database" HorizontalAlignment="Left" Height="36" Margin="206,164,0,0" Grid.Row="2" VerticalAlignment="Top" Width="144" Background="#FF403F3F" Foreground="#FFD6D6D6" BorderBrush="{x:Null}" Style="{DynamicResource Export_ButtonGreyOut_Right}" FontFamily="Roboto" FontWeight="Medium" ToolTip="Exports the changelog to a SQLite database" Click="Button_ExportToDataBase_Click"/>
+        <Button x:Name="Button_DumpToTextFile" Content="Export to Log" HorizontalAlignment="Left" Height="36" Margin="61,164,0,0" Grid.Row="2" VerticalAlignment="Top" Width="144" Background="#FF403F3F" Foreground="#FFD6D6D6" BorderBrush="{x:Null}" Style="{DynamicResource Export_ButtonGreyOut_Left}" FontFamily="Roboto" FontWeight="Medium" ToolTip="Exports the changelog to a textfile named, &quot;log.txt&quot; in the executable directory"/>
+        <ComboBox IsEditable="True" x:Name="ComboBox_Filter" HorizontalAlignment="Left" Margin="51,61,0,0" VerticalAlignment="Top" Width="70" FontWeight="Light" BorderBrush="{x:Null}" Style="{DynamicResource ComboBoxStyle1}" Grid.RowSpan="2">
+            <ComboBoxItem Content="" IsSelected="True"/>
+            <ComboBoxItem Content=".pdf" />
+            <ComboBoxItem Content=".jpg" />
+            <ComboBoxItem Content=".txt" />
+        </ComboBox>
+        <Image HorizontalAlignment="Left" Height="18" Margin="26,62,0,0" VerticalAlignment="Top" Width="18" Source="Resourse/fileExtensionIcon.png" Grid.RowSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="20" Margin="10,44,0,0" Grid.Row="2" VerticalAlignment="Top" Width="20" Source="Resourse/folderIcon.png"/>
+        <DataGrid x:Name="DataGrid_DisplayOutput" HorizontalAlignment="Left" Margin="428,14,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="650" Height="386" IsTextSearchEnabled="True" RowBackground="#FFFFFAE8" AlternatingRowBackground="White" HeadersVisibility="Column" AlternationCount="1" SelectionMode="Single" IsReadOnly="True" Grid.ColumnSpan="2" AutoGenerateColumns="False" MinColumnWidth="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding [0]}" Header="Change" Width="58" IsReadOnly="True" MinWidth="10"/>
+                <DataGridTextColumn Binding="{Binding [1]}" Header="File" Width="171" IsReadOnly="True" MinWidth="10"/>
+                <DataGridTextColumn Binding="{Binding [2]}" Header="Path" Width="290" IsReadOnly="True" MinWidth="10"/>
+                <DataGridTextColumn Binding="{Binding [3]}" Header="Modified" Width="130" IsReadOnly="True" MinWidth="10"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Rectangle Fill="#FF4E4E53" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="413"/>
+    </Grid>
+</Page>
