@@ -29,9 +29,11 @@ PLANNED DESIGN UPDATES
 Monitor tab
 * Ability to switch between directory browsing and file browsing.
 * Improve UX flow for user, such as removing text in Data Base tab making it easier for user to see Export to Data Base or make Data Base tab automatically export data to database table.
+
 Data Base tab
 * Improve contextual design of extension filter combo box to RUN button, making it more obvious that after extension selection, RUN button must be pressed. Currently it appears that RUN button is only relevent to Clear Data Base and Load Data Base.
 * Adjust table width so user doesn't have to scroll horizontally by default.
+
 About tab
 * App title looks like it cut off, move title and version number up.
 * do something about negative space on left, looks horrible.
